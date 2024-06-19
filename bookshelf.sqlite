@@ -1,0 +1,59 @@
+-- sqlite file for SQLite viewer extension.
+-- remember to use db-init3 to initialize.
+
+PRAGMA foreign_keys=ON;
+
+BEGIN TRANSACTION;
+
+CREATE TABLE users (
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+  user_name VARCHAR(50) NOT NULL, 
+  password VARCHAR(50) NOT NULL, 
+  email VARCHAR(50) NOT NULL, 
+  reading_status VARCHAR(20)
+);
+
+-- index necessary columns
+CREATE INDEX users_user_name_idx ON users (user_name);
+
+
+
+CREATE TABLE books (
+  book_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+  ISBN VARCHAR(17) NOT NULL,
+  title VARCHAR(30) NOT NULL,
+  author VARCHAR(150) NOT NULL,
+  genre VARCHAR(50) NOT NULL,
+  year INT(50),
+  platform VARCHAR(30), 
+  editors VARCHAR(30),
+  description VARCHAR(30),
+  publisher VARCHAR(30),
+  publisher_loc VARCHAR(30),
+  series VARCHAR(30),
+  volume_number VARCHAR(30),
+  format VARCHAR(30),
+  language VARCHAR(30),
+  wishlist INTEGER,
+  editions INTEGER,
+  tags VARCHAR(150),
+  rating INTEGER, 
+  locations VARCHAR(30),
+  loan_to VARCHAR(30), 
+  notes VARCHAR(50), 
+  progress DECIMAL(5,2), 
+  share INTEGER,
+  FOREIGN KEY(loan_to) REFERENCES users(user_id)  -- potentially use user_name index instead?
+);
+
+
+
+
+INSERT INTO users (user_name, password, email) VALUES ("mr_andersson", "secretPW", "test@app.nu");
+
+INSERT INTO books (`book_id`,`ISBN`,`title`,`author`,`description`,`genre`
+,`year`,`rating`,`notes`,`progress`) VALUES 
+(0,'ads23', 'book title', 'author', 'good book','horror', '2015-12-18', 3, 'no notes', 78.2);
+
+COMMIT;
+
