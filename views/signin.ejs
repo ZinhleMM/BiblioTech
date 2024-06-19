@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+
+<%- include('head',{title:"Sign in" }) %>
+
+<body>
+    <%- include('nav') %>
+    <div class="center-screen">
+        <article class="centered-article">
+            <form action="/signin" method="post">
+                
+                <% if (invalidEmail) { %>
+                    <div class="field label invalid border">
+                        <input name="email" type="text" autofocus value=<%=email%> >
+                        <label>Email</label>
+                        <span class="error">Invalid Email</span>
+                      </div>
+                <% } else { %>
+                    <div class="field label border">
+                        <input name="email" type="text" autofocus value=<%=email%>>
+                        <label>Email</label>
+                    </div>
+                <% } %>
+                
+                
+                <% if (invalidPassword) { %>
+                    <div class="field label invalid border">
+                        <input name="password" type="password" autofocus value=<%=password%> >
+                        <label>Password</label>
+                        <span class="error">Invalid Password</span>
+                      </div>
+                <% } else { %>
+                    <div class="field label border">
+                        <input name="password" type="password" value=<%=password%>>
+                        <label>Password</label>
+                    </div>
+                <% } %>
+               
+                <button class="responsive" type="submit">Submit</button>
+            </form>
+        </article>
+    </div>
+
+
+</body>
+
+</html>

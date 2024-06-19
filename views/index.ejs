@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<!-- Since we don't have a main page yet I'm updating the list function here, 
+but have this code duplicated on collectionList.ejs so when we have a main page
+this can be replaced and that can be used instead with the same functionality. -->
+
+<%- include('head',{title:"BiblioTech" }) %>
+
+<body>
+  <%- include('nav') %>
+  <main class="responsive">
+  <header class="white-text left-shadow topBar" style="background-image:linear-gradient(to right, #6750a4,transparent)">
+    <nav>
+      <h3>BiblioTech</h3>
+      
+      <button fdprocessedid="52t0u5">
+        <span>My Collection</span>
+        <i>arrow_drop_down</i>
+        <menu>
+          <a href="/collectionList">View Collection</a>
+          <a href="/add">Add a Book</a>
+          <a href="/create_shelf">Create a Bookshelf</a>
+        </menu>
+      </button>
+    </nav>
+  </header>
+
+  <div class="grid medium-space">
+    <ul style="list-style-type: none">
+      <% let count = 0 %> 
+      <% books.forEach(function(book){ %>
+        <% if(count == 0) { %>
+          <div class="row">
+        <% } %>
+        
+        <li>
+          <article class="medium-width border">
+            Title: <%= book.title %> <br>
+            Author: <%= book.author %><br>
+            ISBN: <%= book.isbn %><br>
+            ID: <%= book.book_id %><br>
+          
+            <div class="space"></div>
+            <form action="/editBook" method="POST">
+              <div class="row"> 
+                <button type="submit" class="small" name="editBook" id="editBook" style="padding-left: 15px; padding-right:15px" value="<%= book.book_id %>">Edit</button>
+                <button type="submit" class=" small" name="deleteBook" id="deleteBook" style="padding-left: 15px; padding-right:15px" value="<%= book.book_id %>">Delete</button>
+              </div>
+            </form>
+          </article>
+          <br>
+        </li>
+        <% count++ %> 
+        <% count = count % 4 %>
+        <% if(count == 0) { %>
+          </div>
+        <% } %>
+      <% }) %>
+    </div>
+    </ul>
+  </div>
+  
+  
+  
+ <!-- <div class="row scroll">
+    
+    <article class="small-width border">
+      <h5>Title</h5>
+      <p>Some text here</p>
+      <div class="space"></div>
+      <nav>
+        <button fdprocessedid="k53cwt">Button</button>
+      </nav>
+    </article>
+    <article class="small-width border">
+      <h5>Title</h5>
+      <p>Some text here</p>
+      <div class="space"></div>
+      <nav>
+        <button fdprocessedid="0vavjf">Button</button>
+      </nav>
+    </article>
+    <article class="small-width border">
+      <h5>Title</h5>
+      <p>Some text here</p>
+      <div class="space"></div>
+      <nav>
+        <button fdprocessedid="79x4dm">Button</button>
+      </nav>
+    </article>
+    <article class="small-width border">
+      <h5>Title</h5>
+      <p>Some text here</p>
+      <div class="space"></div>
+      <nav>
+        <button fdprocessedid="yoorwd">Button</button>
+      </nav>
+    </article>
+    <article class="small-width border">
+      <h5>Title</h5>
+      <p>Some text here</p>
+      <div class="space"></div>
+      <nav>
+        <button fdprocessedid="7gaf6">Button</button>
+      </nav>
+    </article>
+    <article class="small-width border">
+      <h5>Title</h5>
+      <p>Some text here</p>
+      <div class="space"></div>
+      <nav>
+        <button fdprocessedid="cooem">Button</button>
+      </nav>
+    </article>
+    <article class="small-width border">
+      <h5>Title</h5>
+      <p>Some text here</p>
+      <div class="space"></div>
+      <nav>
+        <button>Button</button>
+      </nav>
+    </article>
+    <article class="small-width border">
+      <h5>Title</h5>
+      <p>Some text here</p>
+      <div class="space"></div>
+      <nav>
+        <button>Button</button>
+      </nav>
+    </article>
+    <article class="small-width border">
+      <h5>Title</h5>
+      <p>Some text here</p>
+      <div class="space"></div>
+      <nav>
+        <button>Button</button>
+      </nav>
+    </article>
+  </div>
+-->
+
+</main>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <%- include('head',{title:"Settings" }) %>
+<!-- <head>
+  <title>Add Book</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  
+  <link href="https://cdn.jsdelivr.net/npm/beercss@3.2.13/dist/cdn/beer.min.css" rel="stylesheet">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.2.13/dist/cdn/beer.min.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.0.1/dist/cdn/material-dynamic-colors.min.js"></script>
+</head> -->
+
+<body>
+  <%- include('nav') %>
+  <main class="responsive">
+  <br>
+  <article class="border round padding primary center ">
+    
+      <p style="text-align:center"><h3 style="text-align:center; display:block">Edit Book</h3> </p>
+      <p style="text-align:center">Edit Book Data Below</p>
+    
+  </article>
+     
+  <div class="space"></div>
+  
+  <article class="border round padding fill  center ">
+   
+    <form action="/edit_book_data" method="POST">
+      <div class="grid">
+        <div class="field label border s12">
+          <input type="text" fdprocessedid="1pn95" name="title" id="title" value="<%= bookData.title %>">
+          <label>Title</label>
+        </div>
+        <div class="field label border s12">
+          <input type="text" fdprocessedid="1pn95" name="author" id="author" value="<%= bookData.author%>">
+          <label>Authors</label>
+        </div>
+                    
+         
+        <div class="field label border s6">
+          <input type="text" fdprocessedid="1pn95" name="publisher" id="publisher" value="<%=bookData.publisher%>">
+          <label>Publisher</label>
+        </div>
+        <div class="field label border s5">
+          <input type="text" fdprocessedid="1pn95" name="pubLOC" id="pubLOC" value="<%=bookData.publisher_loc%>">
+          <label>Publisher Location</label>
+        </div>
+        <div class="field label border s1">
+          <input type="number" fdprocessedid="96n55g" name="year" id="year" min="1" max="3000"  value="<%=bookData.year%>">
+          <span class="helper">Year of Publication</span>
+        </div>
+
+        <div class="field textarea label border s12">
+          <textarea name="description" id="description" ><%=bookData.description%></textarea>
+          <label>Description</label>
+        </div>
+
+        <nav class="no-space s12">
+          <label for="isbn"><h5>ISBN:</h5></label>
+          <div class="field  border no-round s6">
+            <input type="number" class="default" name="isbn" id="isbn" value="<%= bookData.isbn%>">
+            <span class="helper">Enter the ISBN without dashses</span>
+          </div>
+          <div class="field label border s3">
+            <input type="text" fdprocessedid="1pn95" name="book_id" id="book_id" value="<%=bookData.book_id%>" readonly >
+            <label>Database ID</label>
+          </div>
+          
+        </nav>
+        <br>
+        <nav class="no-space s12">
+        
+          <button type="submit" class="border left-round max primary" fdprocessedid="54t7hc" name="saveChanges" id="saveChanges">
+            <span>Save Changes</span>
+          </button>
+       
+          <button type="submit" class="border right-round max fill" fdprocessedid="f7x5uf" name="discardChanges" id="discardChanges">
+            <span>Discard Changes</span>
+          </button>
+        </nav>
+      </div>
+    </form>
+  </article>
+  
+</main>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <%- include('head',{title:"Add book" }) %>
+
+<body>
+  <%- include('nav') %>
+  <main class="responsive">
+
+  <br>
+  <article class="border round padding primary center ">
+    
+      <p style="text-align:center"><h3 style="text-align:center; display:block">Add a Book</h3> </p>
+      <p style="text-align:center">Enter data manually or search by contents of Title and ISBN fields</p>
+    
+  </article>
+     
+  <div class="space"></div>
+  
+  <article class="border round padding fill  center ">
+   
+    
+    
+    <form action="/add_book" method="POST">
+      <div class="grid">
+        <div class="field label border s12">
+          <input type="text" fdprocessedid="1pn95" name="title" id="title" value="<%= bookData.title %>">
+          <label>Title</label>
+        </div>
+        <div class="field label border s12">
+          <input type="text" fdprocessedid="1pn95" name="author" id="author" value="<%= bookData.author%>">
+          <label>Authors</label>
+        </div>
+                    
+         
+        <div class="field label border s6">
+          <input type="text" fdprocessedid="1pn95" name="publisher" id="publisher" value="<%=bookData.publisher%>">
+          <label>Publisher</label>
+        </div>
+        <div class="field label border s5">
+          <input type="text" fdprocessedid="1pn95" name="pubLOC" id="pubLOC" value="<%=bookData.publisher_loc%>">
+          <label>Publisher Location</label>
+        </div>
+        <div class="field label border s1">
+          <input type="number" fdprocessedid="96n55g" name="year" id="year" min="1" max="3000"  value="<%=bookData.year%>">
+          <span class="helper">Year of Publication</span>
+        </div>
+
+        <div class="field textarea label border s12">
+          <textarea name="description" id="description" ><%=bookData.description%></textarea>
+          <label>Description</label>
+        </div>
+              
+
+        <nav class="no-space s12">
+          <label for="isbn"><h5>ISBN:</h5></label>
+          <div class="max field  border no-round s6">
+            <input type="number" class="default" name="isbn" id="isbn" value="<%= bookData.isbn%>">
+            <span class="helper">Enter the ISBN without dashses</span>
+          </div>
+          <!-- <button type="submit" class="large right-round" fdprocessedid="ba9bg" name="searchBook" id="searchBook">Search by ISBN</button>-->
+          
+        </nav>
+        <nav class="no-space s12">
+        
+          <button type="submit" class="border left-round max fill" fdprocessedid="54t7hc" name="addBook" id="addBook">
+            <span>Add Book</span>
+          </button>
+          <button type="submit" class="border no-round max primary" fdprocessedid="54t7hc" name="searchBook" id="searchBook">
+            <span>Search</span>
+          </button>
+          <button type="submit" class="border right-round max fill" fdprocessedid="f7x5uf" name="clearBook" id="clearBook">
+            <span>Clear</span>
+          </button>
+        </nav>
+      </div>
+    </form>
+  </article>
+</main> 
+</body>
+</html>

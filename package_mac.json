@@ -1,0 +1,29 @@
+{
+  "name": "bookshelf",
+  "version": "1.0.0",
+  "description": "bookshelf application",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "db-init": "cat bookshelf.sql | sqlite3 bookshelf.db",
+    "db-init3": "cat bookshelf.sqlite | sqlite3 bookshelf.db",
+    "db-del": "rm bookshelf.db"
+  },
+  "author": "Team33",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "fast-csv": "^4.3.6",
+    "mysql": "^2.18.1",
+    "node-notifier": "^10.0.1",
+    "nodemon": "^3.0.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "jest": "^29.6.2"
+  }
+}

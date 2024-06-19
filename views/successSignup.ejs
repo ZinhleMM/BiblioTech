@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('head',{title:"Successful signup" }) %>
+
+
+<body>
+    <%- include('nav') %>
+<div class = "center-screen">
+   
+      <div class="center-align">
+        <i class="extra">mail</i>
+        <h5>You've successfully signed up</h5>
+        <p>Click the button to start</p>
+        <div class="space"></div>
+        <nav class="center-align">
+          <form action="/collectionList" method="GET">
+            <button type="submit">Create your first bookshelf </button>
+          </form>
+        </nav>
+      </div>
+   
+  </div>
+</body>
+
+</html>

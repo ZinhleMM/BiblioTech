@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<%- include('head',{title:"Sign up" }) %>
+
+    <body>
+        <%- include('nav') %>
+            <div class="center-screen">
+                <article class="centered-article">
+                    <form action="/signup" method="post">
+
+                        <% if (invalidEmail) { %>
+                            <div class="field label invalid border">
+                                <input name="email" type="text" autofocus value=<%=email%> >
+                                <label>Email</label>
+                                <span class="error">Invalid Email</span>
+                            </div>
+                            <% } else if (emailExists) { %>
+                                <div class="field label invalid border">
+                                    <input name="email" type="text" autofocus value=<%=email%> >
+                                    <label>Email</label>
+                                    <span class="error">Email already taken</span>
+                                </div>
+                                <% } else { %>
+                                    <div class="field label border">
+                                        <input name="email" type="text" autofocus value=<%=email%>>
+                                        <label>Email</label>
+                                    </div>
+                                    <% } %>
+
+                                        <% if (invalidEmailConfirmation) { %>
+                                            <div class="field label invalid border">
+                                                <input name="emailConfirmation" type="text" autofocus
+                                                    value=<%=emailConfirmation%> >
+                                                <label>Email</label>
+                                                <span class="error">Email does not match</span>
+                                            </div>
+                                            <% } else { %>
+                                                <div class="field label border">
+                                                    <input name="Email address confirmation" type="text"
+                                                        value=<%=emailConfirmation%>>
+                                                    <label>Email confirmation</label>
+                                                </div>
+                                                <% } %>
+
+                                                    <% if (invalidUsername) { %>
+                                                        <div class="field label invalid border">
+                                                            <input name="username" type="text" autofocus
+                                                                value=<%=username%> >
+                                                            <label>Invalid Username</label>
+                                                            <span class="error">Invalid username</span>
+                                                            <%- include('usernameTooltip') %>
+                                                        </div>
+
+                                                        <% } else if (usernameExists) { %>
+                                                            <div class="field label invalid border">
+                                                                <input name="username" type="text" autofocus
+                                                                    value=<%=username%> >
+                                                                <label>Username</label>
+                                                                <span class="error">Username already taken</span>
+                                                                <%- include('usernameTooltip') %>
+                                                            </div>
+                                                            <% } else { %>
+                                                                <div class="field label border">
+                                                                    <input name="username" type="text" autofocus
+                                                                        value=<%=username%>>
+                                                                    <label>Username</label>
+                                                                    <%- include('usernameTooltip') %>
+                                                                </div>
+                                                                <% } %>
+
+
+
+                                                                    <% if (invalidPassword) { %>
+                                                                        <div class="field label invalid border">
+                                                                            <input name="password" type="password"
+                                                                                autofocus value=<%=password%> >
+                                                                            <label>Invalid Password</label>
+                                                                            <span class="error">Password must have at
+                                                                                least 8 characters</span>
+                                                                        </div>
+                                                                        <% } else { %>
+                                                                            <div class="field label border">
+                                                                                <input name="password" type="password"
+                                                                                    value=<%=password%>>
+                                                                                <label>Password</label>
+                                                                                <span class="helper">Password must have
+                                                                                    at least 8 characters </span>
+                                                                            </div>
+                                                                            <% } %>
+
+                                                                                <% if (invalidPasswordConfirmation) { %>
+                                                                                    <div
+                                                                                        class="field label invalid border">
+                                                                                        <input
+                                                                                            name="passwordConfirmation"
+                                                                                            type="password" autofocus
+                                                                                            value=<%=passwordConfirmation%>
+                                                                                        >
+                                                                                        <label>Password
+                                                                                            confirmation</label>
+                                                                                        <span class="error">Password
+                                                                                            does not
+                                                                                            match</span>
+                                                                                    </div>
+                                                                                    <% } else { %>
+                                                                                        <div class="field label border">
+                                                                                            <input
+                                                                                                name="passwordConfirmation"
+                                                                                                type="password"
+                                                                                                value=<%=passwordConfirmation%>>
+                                                                                            <label>Password
+                                                                                                confirmation</label>
+                                                                                        </div>
+                                                                                        <% } %>
+
+                                                                                            <button class="responsive"
+                                                                                                type="submit">Submit</button>
+                    </form>
+                </article>
+            </div>
+
+
+    </body>
+
+</html>

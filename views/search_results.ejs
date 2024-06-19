@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+    <%- include('head',{title:"Search Results" }) %>
+
+<body>
+    <%- include('nav') %>
+    <main class="responsive">
+    <br>
+    <article class="border round padding primary center ">
+
+        <p style="text-align:center"><h3 style="text-align:center; display:block">Search Results</h3> </p>
+        <p style="text-align:center">Select a result to import data</p>
+
+    </article>
+        
+    <div class="space"></div>
+    <hr>
+
+    <ul style="list-style: none">
+        <% bookData.forEach(function(b){%>
+            <li>
+                <form action="/add_bookFromSearch" method="POST">
+                    <div class="grid no-space">
+                        <div class="s2"></div> 
+                        <div class="s1">
+                            <img class="responsive" style="object-fit:scale-down" src="public\defaultBookSM.jpg">
+                        </div>
+                        <article class="no-padding tertiary-container s6">
+                            <div class="padding">
+                            <h5><%= b.title %></h5>
+                            <p>       Authors: <%= b.author%><br>
+                                    Publisher: <%=b.publisher%>, <%=b.publisher_loc%> <%=b.year%><br>
+                                <nav>
+                                    <button type="submit" class="border round primary" fdprocessedid="54t7hc" name="addBook" id="addBook" value="<%= JSON.stringify(b) %>">
+                                        <span>Add Book</span>
+                                    </button>
+                                </nav>
+                            </p>
+                            </div>
+                        </article>
+                        <div class="s3"></div>
+                    </div>
+                </form>
+            </li>
+            <br>
+        <%})%>
+    </ul>
+   
+
+
+  
+  
+</main>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <%- include('head',{title:"Settings" }) %>
+
+<body>
+  <%- include('nav') %>
+  <main class="responsive">
+  <header class="white-text left-shadow topBar" style="background-image:linear-gradient(to right, #6750a4,transparent)">
+    <nav>
+      <h3>BiblioTech</h3>
+      
+
+      <button fdprocessedid="52t0u5">
+        <span>My Collection</span>
+        <i>arrow_drop_down</i>
+        <menu>
+          <a href="/collectionList">View Collection</a>
+          <a href="/add">Add a Book</a>
+          <a href="/create_shelf">Create a Bookshelf</a>
+        </menu>
+      </button>
+    </nav>
+  </header>
+
+  <br>
+  <article class="border round padding primary center ">
+      <p style="text-align:center"><h3 style="text-align:center; display:block">User Settings</h3> </p>
+      <p style="text-align:center">Update user settings and profile</p>
+  </article>
+     
+  <div class="space"></div>
+
+  <div class="center-align">
+    <img src="assets/profile_init.png" alt="Profile picture">  <!-- ref: https://www.pngegg.com/en/png-xkafr -->
+  </div>
+
+  <div class="space"></div>
+
+  <article class="border round padding fill  center ">
+    <form action="/settings" method="POST">
+      <div class="grid">
+        <div class="field label border s12">
+          <input type="text" id="user_name" name="user_name" value="<%= user.user_name %>" required minlength="2" maxlength="16"> 
+          <label>Username</label>
+        </div>
+        <div class="field label border s12">
+          <input type="text" id="fav_author" name="fav_author" value="<%= user.fav_author %>" required minlength="2" maxlength="16"> 
+          <label>Favorite Author</label>
+        </div>
+        <div class="field label border s12">
+          <input type="text" id="fav_genre" name="fav_genre" value="<%= user.fav_genre %>" required minlength="2" maxlength="16">  
+          <label>Favorite Genre</label>
+        </div>
+        <div class="field label border s12">
+          <input type="text" id="current_read" name="current_read" value="<%= user.current_read %>" required minlength="2" maxlength="16">  
+          <label>What are you currently reading?</label>
+        </div> 
+        <div class="field textarea label border s12">
+          <input type="text" id="user_description" name="user_description" value="<%= user.user_description %>" required minlength="2" maxlength="160">  
+          <label>Description</label>
+        </div>
+            
+        </nav>
+        <nav class="no-space s12">
+          <button type="submit" class="border left-round max fill">
+            <span>Save</span>
+          </button>
+          <button type="button" class="border no-round max primary">
+            <span>Edit Image</span>
+          </button>
+          <button type="button" class="border right-round max fill" onclick="alert('Are you sure you want to discard changes?'), window.open('/settings','_self')">
+            <span>Clear</span>
+          </button>
+        </nav>
+      </div>
+    </form>
+  </article>
+  <div class="space"></div>
+  <form action = "/logout" method="GET">
+  <button class="responsive" type="submit">
+    <i>logout</i>
+    <span>Sign out</span>
+  </button>
+</form>
+  </main>
+</body>
+</html>

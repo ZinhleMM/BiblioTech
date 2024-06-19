@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <%- include('head',{title:"Create shelf" }) %>
+<body>
+  <%- include('nav') %>
+  <main class="responsive">
+  <br>
+  <article class="border padding primary center">
+      <p style="text-align:center"><h3 style="text-align:center; display:block">Create a Bookshelf</h3> </p>
+      <p style="text-align:center">Create a new bookshelf for organizing your books</p>
+  </article>
+     
+  <div class="space"></div>
+
+  <div class="center-align">
+    <img src="assets/shelf_init.png" alt="Profile picture" width ="25%">     <!-- ref: https://www.pngegg.com/en/png-ddgwo -->
+  </div>  
+
+  <div class="space"></div>
+
+  <article class="border round padding fill center">
+    <form action="/add_shelf" method="POST">
+      <div class="grid">
+        <div class="s12 field label border">
+          <input type="text" name="name" id="name" required minlength="2" maxlength="16" value="<%= shelfData.shelf_name %>">
+          <label>Name of the shelf</label>
+        </div>
+
+        <div class="s12 field textarea label extra border" >
+          <textarea name="description" id="description" required minlength="10"><%= shelfData.description %></textarea>
+          <label>Description</label>
+        </div>
+              
+        </nav>
+        <nav class="no-space s12">
+        
+          <button type="submit" class="border left-round max fill">
+            <span>Add Bookshelf</span>
+          </button>
+          <button type="button" class="border no-round max primary">
+            <span>Change Image</span>
+          </button>
+          <button type="button" class="border right-round max fill" onclick="alert('Are you sure you want to discard?'), window.open('/create_shelf','_self')">
+            <span>Clear</span>
+          </button>
+        </nav>
+      </div>
+    </form>
+    
+  </article>
+
+  </main>
+</body>
+</html>
